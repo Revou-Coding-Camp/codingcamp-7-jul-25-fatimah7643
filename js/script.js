@@ -4,22 +4,37 @@ document.addEventListener("DOMContentLoaded", () => {
   const dateInput = document.getElementById("date-input");
   const tableBody = document.getElementById("todo-tbody");
   const deleteAllBtn = document.getElementById("delete-all");
-
+  const filterSelect = document.getElementById("filter-select");
+  let currentFilter = "all";
+    filterSelect.addEventListener("change", (e) => {
+        currentFilter = e.target.value;
+        renderTodos();
+    });
   let todos = [];
 
   function renderTodos() {
     tableBody.innerHTML = "";
 
-    if (todos.length === 0) {
-      tableBody.innerHTML = `
-        <tr>
-          <td colspan="4" class="text-center text-gray-400 py-4">No task found</td>
-        </tr>`;
+    //filter sesuai dengan pilihan
+    const filtered = todos.filter(todo => {
+    if (currentFilter === "all") return true;
+    return todo.status === currentFilter;
+  });
+
+    if (filtered.length === 0) {
+      const row = document.createElement("tr");
+      row.innerHTML = `
+       <td 
+       colspan="4" class="text-center text-gray-400 py-4">No task found
+       </td>`;
+       tableBody.appendChild(row);
       return;
     }
 
-    todos.forEach((todo, index) => {
-      const row = document.createElement("tr");
+    todos.forEach(todo => {
+    const index = todos.indexOf(todo); // ambil index dari array utama
+    const row = document.createElement("tr");
+
       row.innerHTML = `
         <td class="border border-blue-500/20 px-4 py-2 text-center">${todo.task}</td>
         <td class="border border-blue-500/20 px-4 py-2 text-center">${todo.dueDate || '-'}</td>
