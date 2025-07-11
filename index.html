@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+</head>
+<body class="flex items-center justify-center min-h-screen bg-gradient-to-br from-black via gray-700 to-gray-300">
+    <div class="text-center">
+        <div class="bg-red-200 p-6 rounded-lg">
+    <header>
+        <h1 class="text-2xl font-bold mb-4">Todo list</h1>
+    </header>
+    <main>
+            <form class="flex flex-row item-center gap-4">
+                <input type="text" class="border-[2px] rounded-[10px] p-2 " , placeholder="Add a Todo..." >
+                <input type="date" class="border-[2px] rounded-[10px] p-2" placeholder="duedate">
+
+                <button class="bg-blue-500 text-white px-4 py-1 rounded font-bold ">+</button>
+            </form>
+            <div class="flex justify-between mt-4">
+                <button class="bg-gray-500 text-white px-3 py-1 rounded hover:bg-gray-600">Filter</button>
+                <button class="bg-red-700 text-white px-3 py-1 rounded ">
+                    Delet All
+                </button>
+            </div>
+            <table class="table-auto w-full mt-6 text-left border-collapse border border-gray-300">
+                <thead>
+                    <tr class="bg-gray-200 ">
+                        <th class="border px-4 py-2 text-center ">Task</th>
+                        <th class="border px-4 py 2 text-center ">Due Date</th>
+                        <th class="border px-4 py 2 text-center">Status</th>
+                        <th class="border px-4 py 2 text-center">Action</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td colspan="4" class="text-center text-gray-500 py-4">No task found</td>
+                    </tr>
+                </tbody>
+            </table>
+        </main>
+    </div>
+
+    <footer class="mt-4 text-center">
+        <span class="text-sm text-grey-600"> © 2025 Fatimah. <strong>All rights reserved</strong>
+        </span>
+    </footer>
+    </div>
+</body>
+</html>
