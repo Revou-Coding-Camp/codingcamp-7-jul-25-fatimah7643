@@ -18,7 +18,8 @@ document.addEventListener("DOMContentLoaded", () => {
     //filter sesuai dengan pilihan
     const filtered = todos.filter(todo => {
     if (currentFilter === "all") return true;
-    return todo.status === currentFilter;
+    if (currentFilter === "completed") return todo.completed;
+    if (currentFilter === "pending") return !todo.completed;
   });
 
     if (filtered.length === 0) {
@@ -31,7 +32,7 @@ document.addEventListener("DOMContentLoaded", () => {
       return;
     }
 
-    todos.forEach(todo => {
+    filtered.forEach(todo => {
     const index = todos.indexOf(todo); // ambil index dari array utama
     const row = document.createElement("tr");
 
